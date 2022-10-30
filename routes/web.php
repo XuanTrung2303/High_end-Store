@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\client\ProductController;
+use App\Http\Controllers\Api\client\ProductDetailController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 // Start route login
 Route::get('/login', function () {
     return view('auth.login');
+});
+Route::get('/register', function () {
+    return view('auth.register');
 });
 Route::get('/logout', function () {
     return view('auth.login');
@@ -105,9 +109,18 @@ Route::prefix('/admin')->group(function (){
     });
 
 });
-Route::get('/', function () {
-    return view('user.index');
+
+Route::prefix('/')->group( function () {
+    Route::get('', function () {
+        return view('client.index');
+    });
+    Route::get('/product', [ProductController::class, 'index']);
+    // Route::get('/product_detail/{id}', [ProductController::class, 'show'])->name('showProductClient');
+    Route::get('/product_detail/{id}', [ProductDetailController::class, 'show'])->name('showProductClient');
+    Route::get('/search', [ProductController::class, 'search'])->name('search');
+    Route::get('/search11', [ProductController::class, 'search11'])->name('search11');
 });
+
 // Start resource
 Route::prefix('v1')->group(function () {
     Route::resource('users', 'App\Http\Controllers\Api\v1\UserController');

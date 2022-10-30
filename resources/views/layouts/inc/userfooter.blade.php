@@ -6,7 +6,7 @@
                     <div class="footer-left">
                         <div class="footer-logo">
                             <a href="/index.html">
-                                <img src="/img/logooooo.png" height="25" alt="">
+                                <img src="/user/img/logooooo.png" height="25" alt="">
                             </a>
                         </div>
                         <ul>

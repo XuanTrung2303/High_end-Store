@@ -1,13 +1,55 @@
 @extends('layouts.user')
 
 @section('content')
+        <!--hero section begin-->
+        <section class="hero-section">
+            <div class="hero-items owl-carousel">
+                <div class="single-hero-items set-bg" data-setbg="/user/img/hero-7.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <span>SALE</span>
+                                <h1>Black Friday</h1>
+                                <p>ƯU ĐÃI ĐỘC QUYỀN ONLINE THÁNG 10,
+                                    MUA NGAY KẺO LỠ</p>
+                                <a href="#" class="primary-btn">Mua Ngay</a>
+                            </div>
+                        </div>
+                        <div class="off-card">
+                            <h2>SALE <span>70%</span></h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="single-hero-items set-bg" data-setbg="/user/img/hero-5.jpg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <span>SALE</span>
+                                <h1>Black Friday</h1>
+                                <p>ƯU ĐÃI ĐỘC QUYỀN ONLINE THÁNG 10,
+                                    MUA NGAY KẺO LỠ</p>
+                                <a href="#" class="primary-btn">Mua Ngay</a>
+                            </div>
+                        </div>
+                        <div class="off-card">
+                            <h2>SALE <span>70%</span></h2>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!--hero section end-->
     <!--banner section begin-->
     <div class="banner-section spad">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="single-banner">
-                        <img src="/img/bannerr-6.jpg" alt="">
+                        <img src="/user/img/bannerr-6.jpg" alt="">
                         <div class="inner-text">
                             <h4>Trang Sức Kim Cương</h4>
                         </div>
@@ -16,7 +58,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="single-banner">
-                        <img src="/img/bannnerr-6.jpg" alt="">
+                        <img src="/user/img/bannnerr-6.jpg" alt="">
                         <div class="inner-text">
                             <h4>Trang Sức Ngọc Trai</h4>
                         </div>
@@ -25,7 +67,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="single-banner">
-                        <img src="/img/bannerr-4.jpg" alt="">
+                        <img src="/user/img/bannerr-4.jpg" alt="">
                         <div class="inner-text">
                             <h4>Trang Sức Vàng 24k</h4>
                         </div>
@@ -42,7 +84,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="product-large set-bg" data-setbg="/img/products/diamon-2.jpg">
+                    <div class="product-large set-bg" data-setbg="/user/img/products/diamon-2.jpg">
                         <h2> TRANG SỨC</h2>
                         <a href="#">Xem Thêm</a>
                     </div>
@@ -59,7 +101,7 @@
                     <div class="product-slider owl-carousel">
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="/img/product-single/Silver-colored Ring.jpeg" alt="">
+                                <img src="/user/img/product-single/Silver-colored Ring.jpeg" alt="">
                                 <div class="sale">SALE</div>
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
@@ -83,7 +125,7 @@
                         </div>
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="/img/product-single/Silver-colored Ring.jpeg" alt="">
+                                <img src="/user/img/product-single/Silver-colored Ring.jpeg" alt="">
                                 <div class="sale">SALE</div>
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
@@ -107,7 +149,7 @@
                         </div>
                         <div class="product-item">
                             <div class="pi-pic">
-                                <img src="/img/product-single/Silver-colored Ring.jpeg" alt="">
+                                <img src="/user/img/product-single/Silver-colored Ring.jpeg" alt="">
                                 <div class="sale">SALE</div>
                                 <div class="icon">
                                     <i class="icon_heart_alt"></i>
@@ -139,37 +181,37 @@
     <!--earring hot end-->
     <!--social section begin-->
     <div class="instagram-photo">
-        <div class="insta-item set-bg" data-setbg="/img/instag-1.jpg">
+        <div class="insta-item set-bg" data-setbg="/user/img/instag-1.jpg">
             <div class="inside-text">
                 <i class="ti-instagram"></i>
                 <h5><a href="#">highend_store</a></h5>
             </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="/img/instag-2.jpg">
+        <div class="insta-item set-bg" data-setbg="/user/img/instag-2.jpg">
             <div class="inside-text">
                 <i class="ti-facebook"></i>
                 <h5><a href="#">HIGHEND STORE</a></h5>
             </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="/img/instag-3.jpg">
+        <div class="insta-item set-bg" data-setbg="/user/img/instag-3.jpg">
             <div class="inside-text">
                 <i class="ti-twitter-alt"></i>
                 <h5><a href="#">highend_store</a></h5>
             </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="/img/instag-4.jpg">
+        <div class="insta-item set-bg" data-setbg="/user/img/instag-4.jpg">
             <div class="inside-text">
                 <i class="ti-linkedin"></i>
                 <h5><a href="#">highend_store</a></h5>
             </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="/img/instag-5.jpg">
+        <div class="insta-item set-bg" data-setbg="/user/img/instag-5.jpg">
             <div class="inside-text">
                 <i class="ti-wordpress"></i>
                 <h5><a href="#">highend_store</a></h5>
             </div>
         </div>
-        <div class="insta-item set-bg" data-setbg="/img/instag-6.jpg">
+        <div class="insta-item set-bg" data-setbg="/user/img/instag-6.jpg">
             <div class="inside-text">
                 <i class="ti-email"></i>
                 <h5><a href="#">highendstore@gmail.com</a></h5>
@@ -180,7 +222,7 @@
     <!--latest blog section begin-->
     <section class="latest-blog spad">
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>From The Blog</h2>
@@ -190,7 +232,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-blog">
-                        <img src="/img/product-single/Diamon Ring Close-up.jpeg" alt="">
+                        <img src="/user/img/product-single/Diamon Ring Close-up.jpeg" alt="">
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
@@ -211,7 +253,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-blog">
-                        <img src="/img/product-single/Necklaces Diamonds.jpeg" alt="">
+                        <img src="/user/img/product-single/Necklaces Diamonds.jpeg" alt="">
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
@@ -232,7 +274,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="single-latest-blog">
-                        <img src="/img/product-single/Pendant Diamonds.jpeg" alt="">
+                        <img src="/user/img/product-single/Pendant Diamonds.jpeg" alt="">
                         <div class="latest-text">
                             <div class="tag-list">
                                 <div class="tag-item">
@@ -251,13 +293,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="benefit-items">
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="single-benefit">
                             <div class="sb-icon">
-                                <img src="/img/icon-1.png" alt="">
+                                <img src="/user/img/icon-1.png" alt="">
                             </div>
                             <div class="sb-text">
                                 <h6>Miễn Phí Ship</h6>
@@ -268,7 +310,7 @@
                     <div class="col-lg-4">
                         <div class="single-benefit">
                             <div class="sb-icon">
-                                <img src="/img/icon-2.png" alt="">
+                                <img src="/user/img/icon-2.png" alt="">
                             </div>
                             <div class="sb-text">
                                 <h6>Giao trong vòng 24h</h6>
@@ -279,7 +321,7 @@
                     <div class="col-lg-4">
                         <div class="single-benefit">
                             <div class="sb-icon">
-                                <img src="/img/icon-3.png" alt="">
+                                <img src="/user/img/icon-3.png" alt="">
                             </div>
                             <div class="sb-text">
                                 <h6>Phương Thức Thanh Toán</h6>

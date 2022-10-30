@@ -15,18 +15,41 @@
                     0909090909
                 </div>
             </div>
-            <div class="ht-right">
-                <a href="/login.html" class="login-panel"><i class="fa fa-user">Login</i></a>
-            </div>
+
+        <div class="ht-right">
+            @if (Route::has('login'))
+            @auth
+                <div class="user-nav d-sm-flex d-none text-bg-danger"><span class=" font-weight-bold login-panel">{{ Auth::user()->name }}</span>
+                </div>
+                <a>
+                    <form method="POST" action="{{ route('logout') }}" class="dropdown-item">
+                        @csrf
+                        <a style="color: red;font-weight: bold;" href="route('logout')" onclick="event.preventDefault();
+                            this.closest('form').submit();">
+                            <i class="me-10" data-feather="power"></i>
+                            {{ __('Đăng xuất') }}
+                        </a>
+                    </form>
+                </a>
         </div>
+    @else
+        <a href="{{ route('login') }}" class="login-panel"><i class="fa fa-user"></i>Đăng nhập</a>
+        @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="login-panel mr-3"><i class="fa fa-user"></i>Đăng ký</a>
+        @endif
+        <!-- </a> -->
+    @endauth
+    @endif
+        </div>
+    </div>
     </div>
     <div class="container">
         <div class="inner-header">
             <div class="row">
                 <div class="col-lg-2 col-md-2">
                     <div class="logo">
-                        <a href="/index.html">
-                            <img src="/img/logooooo.png" height="38px" width="140px" alt="">
+                        <a href="{{ url('/') }}">
+                            <img src="/user/img/logooooo.png" height="38px" width="140px" alt="">
                         </a>
                     </div>
                 </div>
@@ -34,7 +57,7 @@
                     <div class="advanced-search">
                         <button type="button" class="category-btn">Tất cả danh mục</button>
                         <div class="input-group">
-                            <input type="text" placeholder="What do you need">
+                            <input type="text" placeholder="Tìm kiếm...">
                             <button type="button"><i class="ti-search"></i></button>
                         </div>
                     </div>
@@ -57,7 +80,7 @@
                                     <table>
                                         <tbody>
                                             <tr>
-                                                <td class="si-pic"><img src="/img/instag-1.jpg"></td>
+                                                <td class="si-pic"><img src="/user/img/instag-1.jpg"></td>
                                                 <td class="si-text">
                                                     <div class="product-selected">
                                                         <p>$60.000.000 x 1</p>
@@ -70,7 +93,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="si-pic"><img src="/img/instag-2.jpg"></td>
+                                                <td class="si-pic"><img src="/user/img/instag-2.jpg"></td>
                                                 <td class="si-text">
                                                     <div class="product-selected">
                                                         <p>60.000.000 x 1</p>
@@ -95,8 +118,6 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="cart-price">$120.00</li>
-
                     </ul>
                 </div>
             </div>
@@ -104,27 +125,10 @@
     </div>
     <div class="nav-item">
         <div class="container">
-            <div class="nav-depart">
-                <div class="depart-btn">
-                    <i class="ti-menu"></i>
-                    <span>TRANG SỨC</span>
-                    <ul class="depart-hover">
-                        <li class="active"><a href="#">Dây Chuyền</a></li>
-                        <li><a href="#">Nhẫn</a></li>
-                        <li><a href="#">Lắc Vòng</a></li>
-                        <li><a href="#">Hoa Tai</a></li>
-                        <li><a href="#">Đồng Hồ</a></li>
-                        <li><a href="#">Mặt Dây</a></li>
-                        <li><a href="#">Kim Cương Viên</a></li>
-                        <li><a href="#">Charm</a></li>
-                    </ul>
-                </div>
-
-            </div>
-            <nav class="nav-menu mobile-menu">
+            <nav class="nav-menu mobile-menu mr-5">
                 <ul>
-                    <li><a href="/index.html">Trang Chủ</a></li>
-                    <li><a href="/shop.html">Sản Phẩm</a></li>
+                    <li><a href="{{ url('/') }}">Trang Chủ</a></li>
+                    <li><a href="{{ url('/product') }}">Sản Phẩm</a></li>
                     <li><a href="">Bộ Sưu Tập</a>
                         <ul class="dropdown">
                             <li><a href="">Trang Sức Ngọc Trai</a></li>
@@ -140,13 +144,9 @@
                             <li><a href="/shopping-cart.html">Giỏ Hàng</a></li>
                             <li><a href="/check-out.html">Thanh Toán</a></li>
                             <li><a href="/faq.html">Faq</a></li>
-                            <li><a href="/register.html">Đăng ký</a></li>
-                            <li><a href="/login.html">Đăng Nhập</a></li>
                         </ul>
                     </li>
-
                 </ul>
-
             </nav>
             <div class="mobile-menu-wrap"></div>
         </div>

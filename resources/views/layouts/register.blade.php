@@ -25,9 +25,7 @@
 </head>
 
 <body>
-    @include('layouts.inc.userheader')
     @yield('content')
-    @include('layouts.inc.userfooter')
     <!-- Js Plugins -->
     <script src="{{ asset ('user/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{ asset ('user/js/bootstrap.min.js')}}"></script>

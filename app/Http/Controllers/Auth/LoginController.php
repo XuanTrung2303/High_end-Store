@@ -32,7 +32,7 @@ class LoginController extends Controller
     {
         if(Auth::user()->role_as == '1') //1 = Admin Login
         {
-            return redirect('/dashboard')->with('status','Chào mừng bạn đến với trang Admin');
+            return redirect('/')->with('status','Chào mừng bạn đến với trang Admin');
         }
         elseif(Auth::user()->role_as == '0') // Normal or Default User Login
         {
