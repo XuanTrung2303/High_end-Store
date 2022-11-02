@@ -32,8 +32,8 @@
                         @foreach ($brands as $brand)
                             <div class="fw-brand-check">
                                 <div class="bc-item"><label for="bc-calvin">
-                                    {{ $brand->name_brands }}
-                                </label></div>
+                                        {{ $brand->name_brands }}
+                                    </label></div>
                             </div>
                         @endforeach
                     </div>
@@ -43,24 +43,27 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="product-pic-zoom">
-                                <img src="{{ asset('/storage/'. $products->image_product)}}" alt="" class="product-big-img">
+                                <img src="{{ asset('/storage/' . $products->image_product) }}" alt=""
+                                    class="product-big-img">
                                 <div class="zoom-icon">
                                     <i class="fa fa-search-plus"></i>
                                 </div>
                             </div>
                             <div class="product-thumbs">
                                 <div class="product-thumbs-track ps-slider owl-carousel">
-                                    <div class="pt active" data-imgbigurl="{{ asset('/storage/'. $products->image_product) }}">
-                                        <img src="{{ asset('/storage/'. $products->image_product) }}" alt="">
+                                    <div class="pt active"
+                                        data-imgbigurl="{{ asset('/storage/' . $products->image_product) }}">
+                                        <img src="{{ asset('/storage/' . $products->image_product) }}" alt="">
                                     </div>
-                                    <div class="pt" data-imgbigurl="{{ asset('/storage/'. $products->image_product) }}">
-                                        <img src="{{ asset('/storage/'. $products->image_product) }}" alt="">
+                                    <div class="pt" data-imgbigurl="{{ asset('/storage/' . $products->image_product) }}">
+                                        <img src="{{ asset('/storage/' . $products->image_product) }}" alt="">
                                     </div>
-                                    <div class="pt" data-imgbigurl="{{ asset('/storage/'. $products->image_product) }}">
-                                        <img src="{{ asset('/storage/'. $products->image_product) }}" alt="">
+                                    <div class="pt" data-imgbigurl="{{ asset('/storage/' . $products->image_product) }}">
+                                        <img src="{{ asset('/storage/' . $products->image_product) }}" alt="">
                                     </div>
-                                    <div class="pt" data-imgbigurl="{{ asset('/storage/'. $products->image_product) }}">
-                                        <img src="{{ asset('/storage/'. $products->image_product) }}" alt="">
+                                    <div class="pt"
+                                        data-imgbigurl="{{ asset('/storage/' . $products->image_product) }}">
+                                        <img src="{{ asset('/storage/' . $products->image_product) }}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -72,12 +75,10 @@
                                     <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
                                 </div>
                                 <div class="pd-rating">
+                                    @for ($i = 0; $i < $Round; $i++)
                                     <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <span>(5)</span>
+                                    @endfor
+                                    <span>({{$Round}})</span>
                                 </div>
                                 <div class="pd-desc">
                                     <p>{{ $products->brand->name_brands }}</p>
@@ -107,8 +108,8 @@
                         <div class="product-tab">
                             <div class="tab-item">
                                 <ul class="nav" role="tablist">
-                                    <li><a class="active" href="#tab-1" data-toggle="tab"
-                                            role="tab">Mô tả sản phẩm</a></li>
+                                    <li><a class="active" href="#tab-1" data-toggle="tab" role="tab">Mô tả sản phẩm</a>
+                                    </li>
                                     <li><a href="#tab-2" data-toggle="tab" role="tab">Chi tiết sản phẩm</a></li>
                                     <li><a href="#tab-3" data-toggle="tab" role="tab">Đánh giá sản phẩm</a></li>
                                 </ul>
@@ -134,11 +135,10 @@
                                                     <td class="p-catagory">Đánh giá sao</td>
                                                     <td>
                                                         <div class="pd-rating">
+                                                            @for ($i = 0; $i < $Round; $i++)
                                                             <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                            <span>(5)</span>
+                                                            @endfor
+                                                            <span>({{$Round}})</span>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -173,78 +173,87 @@
                                     </div>
                                     <div class="tab-pane fade" id="tab-3" role="tabpanel">
                                         <div class="customer-review-option">
-                                            <h4>2 Comments</h4>
+                                            <h4>
+                                            {{ $countcomment }} Bình luận
+                                            </h4>
                                             <div class="comment-option">
+                                                @foreach ($comm as $com)
                                                 <div class="co-item">
                                                     <div class="avatar-pic">
-                                                        <img src="img/product-single/avatar-1.png" alt="">
+                                                        <img src="{{asset('/storage/'.$com->user->image)}}" alt="">
                                                     </div>
                                                     <div class="avatar-text">
                                                         <div class="at-rating">
+                                                            @for ($i = 0; $i < $com->rating; $i++)
                                                             <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
+                                                            @endfor
                                                         </div>
-                                                        <h5>Brandon Kelley <span>27 Aug 2022</span></h5>
-                                                        <div class="at-reply">Nice !</div>
+                                                        <h5>{{$com->user->name}}<span>{{$com->created_at}}</span></h5>
+                                                        <div class="at-reply">{{$com->massages}}</div>
                                                     </div>
                                                 </div>
-                                                <div class="co-item">
-                                                    <div class="avatar-pic">
-                                                        <img src="img/product-single/avatar-1.png" alt="">
-                                                    </div>
-                                                    <div class="avatar-text">
-                                                        <div class="at-rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
+                                                @endforeach
+                                            </div>
+                                            <div>
+                                                @if (Route::has('login'))
+                                                    @auth
+                                                    <div id="comRate">
+                                                        @if (Route::has('login'))
+                                                        @auth
+                                                        <div id="comRate">
+                                                            <div class="personal-rating">
+                                                                <div class="leave-comment">
+                                                                    <h4>Đánh giá sao và bình luận</h4>
+                                                                    <form method="POST" id="ratingForm" action="/product_detail/comment/{{$products->id}}" class="comment-form">
+                                                                       @method('POST')
+                                                                        @csrf
+                                                                        <div class="rating-css">
+                                                                            <div name="rating" id="rating" class="star-icon">
+                                                                                <input type="radio" value="1" name="rating" id="rating1">
+                                                                                <label for="rating1" class="fa fa-star"></label>
+                                                                                <input type="radio" value="2" name="rating" id="rating2">
+                                                                                <label for="rating2" class="fa fa-star"></label>
+                                                                                <input type="radio" value="3" name="rating" id="rating3">
+                                                                                <label for="rating3" class="fa fa-star"></label>
+                                                                                <input type="radio" value="4" name="rating" id="rating4">
+                                                                                <label for="rating4" class="fa fa-star"></label>
+                                                                                <input type="radio" value="5" name="rating" id="rating5">
+                                                                                <label for="rating5" class="fa fa-star"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-lg-6">
+                                                                            </div>
+                                                                            <div class="col-lg-12">
+                                                                                <textarea name="massages" placeholder="Nhập nội dung bình luận..."></textarea>
+                                                                                <button type="submit" class="site-btn">Gửi bình luận</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
-                                                        <h5>Brandon Kelley <span>27 Aug 2022</span></h5>
-                                                        <div class="at-reply">Nice !</div>
-                                                    </div>
+
+                                                @else
+                                                    <div id="comRate1"></div>
+                                                @endauth
+                                                @endif
                                                 </div>
-                                            </div>
-                                            <div class="personal-rating">
-                                                <h6>Your Rating</h6>
-                                                <div class="rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-                                            </div>
-                                            <div class="leave-comment">
-                                                <h4>Leave A Comment</h4>
-                                                <form action="" class="comment-form">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <input type="text" placeholder="Name">
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <input type="text" placeholder="Email">
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <textarea placeholder="Messages"></textarea>
-                                                            <button type="submit" class="site-btn">Send message</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            @else
+                                                <div id="comRate1"></div>
+                                            @endauth
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- @endforeach --}}
                 </div>
+                {{-- @endforeach --}}
             </div>
+        </div>
         </div>
     </section>
     <!-- Product Shop Section End -->
@@ -259,35 +268,48 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($product_related as $key =>$same_kind)
-                <div class="col-lg-3 col-sm-6">
-                    <div class="product-item">
-                        <div class="pi-pic">
-                            <img src="{{ asset('/storage/' .$same_kind->image_product) }}" alt="">
-                            <div class="sale pp-sale">Sale</div>
-                            <div class="icon">
-                                <i class="icon_heart_alt"></i>
+                @foreach ($product_related as $key => $same_kind)
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="{{ asset('/storage/' . $same_kind->image_product) }}" alt="">
+                                <div class="sale pp-sale">Sale</div>
+                                <div class="icon">
+                                    <i class="icon_heart_alt"></i>
+                                </div>
+                                <ul>
+                                    <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{{ route('showProductClient', $same_kind->id) }}">+
+                                            Chi Tiết</a></li>
+                                    <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
+                                </ul>
                             </div>
-                            <ul>
-                                <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="{{route('showProductClient',$same_kind->id)}}">+ Quick View</a></li>
-                                <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="pi-text">
-                            <div class="catagory-name">{{$same_kind->brand->name_brands }}</div>
-                            <a href="">
-                                <h5>{{$same_kind->name_product }}</h5>
-                            </a>
-                            <div class="product-price">
-                                {{$same_kind->price }}.000.000 VNĐ
+                            <div class="pi-text">
+                                <div class="catagory-name">{{ $same_kind->brand->name_brands }}</div>
+                                <a href="">
+                                    <h5>{{ $same_kind->name_product }}</h5>
+                                </a>
+                                <div class="product-price">
+                                    {{ $same_kind->price }}.000.000 VNĐ
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
     </div>
     <!-- Related Products Section End -->
+    <script>
+        $(function() {
+            $("#comRate").comRate({
+                rating: 0,
+                normalFill: "#A0A0A0",
+                ratedFill: "#ffff00"
+            }).on('comrate.set', function(e, data) {
+                $('#rating').val(data.rating);
+                $('#formRating').submit();
+            });
+        });
+    </script>
 @endsection

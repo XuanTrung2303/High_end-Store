@@ -8,7 +8,7 @@
             <div class="ht-left">
                 <div class="mail-service">
                     <i class="fa fa-envelope"></i>
-                    highendjewelry@gmail.com
+                    highendstore@gmail.com
                 </div>
                 <div class="phone-service">
                     <i class="fa fa-phone"></i>
@@ -136,7 +136,7 @@
                             <li><a href="">Trang Sức Vàng 24k</a></li>
                         </ul>
                     </li>
-                    <li><a href="/blog.html">Blog</a></li>
+                    <li><a href="{{ url('/blog') }}">Blog</a></li>
                     <li><a href="/contact.html">Liên Hệ</a></li>
                     <li><a href="">Pages</a>
                         <ul class="dropdown">

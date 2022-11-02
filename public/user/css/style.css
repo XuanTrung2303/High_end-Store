@@ -268,6 +268,61 @@ ol {
   Header
 -----------------------*/
 
+/* rating */
+.rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0;
+  }
+  .rating-css input {
+    display: none;
+  }
+  .rating-css input + label {
+    font-size: 60px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+  }
+  .rating-css input:checked + label ~ label {
+    color: #b4afaf;
+  }
+  .rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+  }
+
+/* End of Star Rating */
+
+ body {
+    background: #fff;
+ }
+
+ .info {
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Consolas";
+    position: absolute;
+    top: -80px;
+    overflow: hidden;
+ }
+
+
+
+ *,
+ *:after,
+ *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+ }
+
 .ht-right .lan-selector {
 	max-width: 142px;
 	cursor: pointer;
@@ -4310,3 +4365,4 @@ ol {
 		padding-right: 15px;
 	}
 }
+

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\client\BlogController;
+use App\Http\Controllers\Api\client\BlogDetailController;
 use App\Http\Controllers\Api\client\ProductController;
 use App\Http\Controllers\Api\client\ProductDetailController;
 use Illuminate\Support\Facades\Auth;
@@ -114,11 +116,23 @@ Route::prefix('/')->group( function () {
     Route::get('', function () {
         return view('client.index');
     });
-    Route::get('/product', [ProductController::class, 'index']);
-    // Route::get('/product_detail/{id}', [ProductController::class, 'show'])->name('showProductClient');
-    Route::get('/product_detail/{id}', [ProductDetailController::class, 'show'])->name('showProductClient');
+Route::prefix('/product')->group(function () {
+    Route::get('', [ProductController::class, 'index']);
     Route::get('/search', [ProductController::class, 'search'])->name('search');
     Route::get('/search11', [ProductController::class, 'search11'])->name('search11');
+    });
+
+Route::prefix('/product_detail')->group(function () {
+    Route::get('/{id}', [ProductDetailController::class, 'show'])->name('showProductClient');
+    Route::post('/comment/{id}', [ProductController::class, 'store'])->name('comment.product');
+});
+Route::prefix('/blog')->group(function () {
+    Route::get('', [BlogController::class, 'index']);
+});
+Route::prefix('/blog_detail')->group(function () {
+    Route::get('/{id}', [BlogDetailController::class, 'show'])->name('showBlogClient');
+    Route::post('/comment/{id}', [BlogDetailController::class, 'store'])->name('comment.blog');
+});
 });
 
 // Start resource

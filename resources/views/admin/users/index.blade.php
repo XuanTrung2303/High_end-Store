@@ -42,7 +42,7 @@
                                     <span class="text-xs font-weight-bold">{{$user->password}}</span>
                                 </td>
                                 <td class="text-center">
-                                    <img width="200px" src="{{$user->image}}">
+                                    <img width="200px" src="{{asset('/storage/'.$user->image)}}">
                                     <b class="text-xs"></b>
                                 </td>
                                 <td class="text-center">

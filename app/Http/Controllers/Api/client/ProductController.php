@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\client;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\CategoryProduct;
+use App\Models\CommentProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -57,10 +59,20 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+        $pro_id = $id;
+        $product_comment = new CommentProduct();
+        $product = Product::find($id);
+        $product_comment->product_id = $pro_id;
+        $product_comment->user_id = Auth::user()->id;
+        $product_comment->massages = $request->massages;
+        $product_comment->rating = $request->rating;
+        $product_comment->save();
+        // return redirect()->route('client.product.product_detail')->with(compact( 'products', 'product_comment', 'pro_id'));
+        return redirect()->back();
     }
+
 
     /**
      * Display the specified resource.
@@ -72,8 +84,9 @@ class ProductController extends Controller
     {
         $categories = CategoryProduct::all();
         $brands = Brand::all();
+        $comm = CommentProduct::all();
         $products = Product::find($id);
-        return view('client.product.product_detail')->with(compact('products','brands','categories'));
+        return view('client.product.product_detail')->with(compact('products','brands','categories','comm'));
     }
 
     /**

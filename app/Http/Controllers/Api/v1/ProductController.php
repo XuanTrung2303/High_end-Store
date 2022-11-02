@@ -23,7 +23,6 @@ class ProductController extends Controller
         $brands = Brand::all();
         $products = Product::where('product_category_id','=',$keywords)->get();
         if(count($products)!=0){
-
             return view('admin.products.index')->with(compact('products','category','brands'));
         }
         else if (count($products)==0){

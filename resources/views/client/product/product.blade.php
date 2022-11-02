@@ -85,10 +85,7 @@
                                             <ul>
                                                 <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a>
                                                 </li>
-                                                {{-- <a class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit product">
-                                                    <input type="submit" class="btn btn-success" value="Cập nhật">
-                                                </a> --}}
-                                                <li class="quick-view"><a href="{{route('showProductClient', $product->id)}}">  <input class="btn btn-success" type="submit" value="+ Chi tiết"></a></li>
+                                                <li class="quick-view"><a href="{{route('showProductClient', $product->id)}}"> + Chi tiết</a></li>
                                                 <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
                                             </ul>
                                         </div>
