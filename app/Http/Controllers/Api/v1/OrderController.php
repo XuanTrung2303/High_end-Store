@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 class OrderController extends Controller
 {
-
-
     public function search4(){
         $keywords = $_GET['key_user_id'];
         $users = User::all();
