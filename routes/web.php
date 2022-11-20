@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Api\client\BlogController;
 use App\Http\Controllers\Api\client\BlogDetailController;
+use App\Http\Controllers\Api\client\CartController;
+use App\Http\Controllers\Api\client\CheckoutController;
 use App\Http\Controllers\Api\client\ProductController;
 use App\Http\Controllers\Api\client\ProductDetailController;
+use App\Http\Controllers\Api\client\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -29,6 +32,7 @@ Route::get('/logout', function () {
 // End route logout
 
 Route::prefix('/admin')->group(function (){
+    Route::get('/thongke',  [App\Http\Controllers\Api\v1\HomeController::class, 'index']);
     Route::prefix('/categories')->group(function () {
         //Start route Product_category
         Route::get('/index', [App\Http\Controllers\Api\v1\CategoryProductController::class, 'index'])->name('indexCategory');
@@ -121,7 +125,6 @@ Route::prefix('/product')->group(function () {
     Route::get('/search', [ProductController::class, 'search'])->name('search');
     Route::get('/search11', [ProductController::class, 'search11'])->name('search11');
     });
-
 Route::prefix('/product_detail')->group(function () {
     Route::get('/{id}', [ProductDetailController::class, 'show'])->name('showProductClient');
     Route::post('/comment/{id}', [ProductController::class, 'store'])->name('comment.product');
@@ -133,6 +136,13 @@ Route::prefix('/blog_detail')->group(function () {
     Route::get('/{id}', [BlogDetailController::class, 'show'])->name('showBlogClient');
     Route::post('/comment/{id}', [BlogDetailController::class, 'store'])->name('comment.blog');
 });
+Route::prefix('/cart')->group(function () {
+    Route::post('', [CartController::class, 'store']);
+    Route::get('/show_cart/', [CartController::class, 'index'])->name('indexCart');
+    Route::get('/delete-cart/{rowId}', [CartController::class, 'destroy'])->name('deleteCart');
+});
+Route::post('/cart/order', [CheckoutController::class, 'store'])->name('Checkout');
+// Route::post('/cart/order', [CheckoutController::class, 'store1'])->name('Checkout1');
 });
 
 // Start resource
@@ -148,6 +158,8 @@ Route::prefix('v1')->group(function () {
     Route::resource('comment_blogs', 'App\Http\Controllers\Api\v1\BlogCommentController');
 });
 // End resource
+Route::get('/tim-kiem', [SearchController::class, 'timkiem']);
+
 Auth::routes();
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

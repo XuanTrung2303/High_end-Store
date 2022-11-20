@@ -21,7 +21,7 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>HighEnd-Store Admin</title>
     <!-- Styles -->
     <link href="{{ asset('admin/material-dashboard.css') }}" rel="stylesheet">
 </head>

@@ -16,7 +16,6 @@
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">ID</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Tên đăng nhập</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Email</th>
-                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Mật khẩu</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Hình ảnh</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Số điện thoại</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Địa chỉ</th>
@@ -38,13 +37,7 @@
                                 <td class="text-center">
                                     <span class="text-xs font-weight-bold">{{$user->email}}</span>
                                 </td>
-                                <td class="text-center">
-                                    <span class="text-xs font-weight-bold">{{$user->password}}</span>
-                                </td>
-                                <td class="text-center">
-                                    <img width="200px" src="{{asset('/storage/'.$user->image)}}">
-                                    <b class="text-xs"></b>
-                                </td>
+
                                 <td class="text-center">
                                     <span class="text-xs font-weight-bold">{{$user->phone}}</span>
                                 </td>

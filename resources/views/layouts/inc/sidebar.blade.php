@@ -2,7 +2,6 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="" target="_blank">
-            <img src="../img/logoo.png" class="navbar-brand-img h-100">
             <span class="ms-1 font-weight-bold text-white">High-End Store</span>
         </a>
     </div>
@@ -10,7 +9,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white active bg-gradient-primary" href="{{asset('/dashboard')}}">
+                <a class="nav-link text-white bg-gradient-warning" href="{{asset('/dashboard')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
@@ -18,15 +17,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="{{asset('admin/users/index')}}">
+                <a class="nav-link text-white bg-gradient-warning" href="{{asset('admin/users/index')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>
                     <span class="nav-link-text ms-1">Users</span>
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle bg-gradient-warning" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-10">receipt_long</i>
                     Category
                 </a>
@@ -36,7 +35,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle bg-gradient-warning" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-10">receipt_long</i>
                     Brand
                 </a>
@@ -46,7 +45,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle bg-gradient-warning" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-10">receipt_long</i>
                     Product
                 </a>
@@ -56,15 +55,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="{{asset('admin/orders/index')}}">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Orders</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="{{asset('admin/comment_product/index')}}">
+                <a class="nav-link text-white bg-gradient-warning" href="{{asset('admin/comment_product/index')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
@@ -72,7 +63,7 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle bg-gradient-warning" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-10">receipt_long</i>
                     Blog
                 </a>
@@ -82,11 +73,27 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="{{asset('admin/comment_blog/index')}}">
+                <a class="nav-link text-white bg-gradient-warning" href="{{asset('admin/comment_blog/index')}}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">receipt_long</i>
                     </div>
                     <span class="nav-link-text ms-1">Blog_Comments</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white bg-gradient-warning" href="{{asset('admin/orders/index')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Orders</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white bg-gradient-warning" href="{{asset('admin/thongke')}}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">receipt_long</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Statistical</span>
                 </a>
             </li>
         </ul>

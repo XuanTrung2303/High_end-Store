@@ -55,7 +55,7 @@
                                     <b class="text-xs text-secondary mb-0">{{$order->user->name}}</b>
                                 </td>
                                 <td class="text-center">
-                                    <b class="text-xs text-secondary mb-0">{{$order->date_order}}</b>
+                                    <b class="text-xs text-secondary mb-0">{{$order->created_at}}</b>
                                 </td>
                                 <td class="text-center">
                                     <b class="text-xs text-secondary mb-0">{{$order->order_status}}</b>

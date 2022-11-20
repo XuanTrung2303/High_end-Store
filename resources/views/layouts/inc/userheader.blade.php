@@ -53,12 +53,15 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-7">
+                <div class="col-lg-7 col-md-5">
                     <div class="advanced-search">
-                        <button type="button" class="category-btn">Tất cả danh mục</button>
                         <div class="input-group">
-                            <input type="text" placeholder="Tìm kiếm...">
-                            <button type="button"><i class="ti-search"></i></button>
+                            <form action="{{url('tim-kiem')}}" method="GET">
+                            @csrf
+                            <input type="text"  name="key_pro_name" placeholder="Tìm kiếm...">
+                            <button type="submit" name="timkiem"><i class="ti-search"></i></button>
+                            </form>
+                            {{-- <input type="submit" value="tìm kiếm" name=""> --}}
                         </div>
                     </div>
                 </div>
@@ -70,7 +73,7 @@
                                 <span>1</span>
                             </a>
                         </li>
-                        <li class="cart-icon">
+                        {{-- <li class="cart-icon">
                             <a href="#">
                                 <i class="icon_bag_alt"></i>
                                 <span>3</span>
@@ -113,11 +116,11 @@
                                     <h5>$120.00</h5>
                                 </div>
                                 <div class="select-button">
-                                    <a href="/shopping-cart.html" class="primary-btn view-card">Giỏ hàng</a>
+                                    <a href="{{ url('/cart/show_cart/') }} }}" class="primary-btn view-card">Giỏ hàng</a>
                                     <a href="/check-out.html" class="primary-btn checkout-btn">Thanh toán</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </div>
@@ -129,21 +132,11 @@
                 <ul>
                     <li><a href="{{ url('/') }}">Trang Chủ</a></li>
                     <li><a href="{{ url('/product') }}">Sản Phẩm</a></li>
-                    <li><a href="">Bộ Sưu Tập</a>
-                        <ul class="dropdown">
-                            <li><a href="">Trang Sức Ngọc Trai</a></li>
-                            <li><a href="">Trang Sức Kim Cương</a></li>
-                            <li><a href="">Trang Sức Vàng 24k</a></li>
-                        </ul>
-                    </li>
                     <li><a href="{{ url('/blog') }}">Blog</a></li>
                     <li><a href="/contact.html">Liên Hệ</a></li>
                     <li><a href="">Pages</a>
                         <ul class="dropdown">
-                            <li><a href="/blog-details.html">Chi tiết bài viết</a></li>
-                            <li><a href="/shopping-cart.html">Giỏ Hàng</a></li>
-                            <li><a href="/check-out.html">Thanh Toán</a></li>
-                            <li><a href="/faq.html">Faq</a></li>
+                            <li><a href="{{ url('/cart/show_cart/') }}">Giỏ Hàng</a></li>
                         </ul>
                     </li>
                 </ul>
