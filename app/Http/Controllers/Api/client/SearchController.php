@@ -10,19 +10,20 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class SearchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    // public function timkiem() {
-    //     $keywords =$_GET['key_pro_id'];
-    //     $category_product = Product::with('category_product')->where('name_product','LIKE','%'.$keywords.'%')->orWhere('cate','LIKE','%'.$keywords.'%')->get();
-    //     $category = CategoryProduct::all();
-    //     return view('layouts.search')->with(compact('category','category_product','keywords'));
-    // }
+    public function timkiem() {
+            $keywords =$_GET['key_pro_name'];
+            $category_product = Product::with('category_product')->where('name_product','LIKE','%'.$keywords.'%')->orWhere('cate','LIKE','%'.$keywords.'%')->get();
+            $categories = CategoryProduct::all();
+            $brands = Brand::all();
+            return view('layouts.search')->with(compact('categories','category_product','keywords', 'brands'));
+    }
     public function search(){
         $keywords = $_GET['key_cate_id'];
         $categories = CategoryProduct::all();

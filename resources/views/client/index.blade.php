@@ -44,7 +44,7 @@
         </section>
         <!--hero section end-->
     <!--banner section begin-->
-    <div class="banner-section spad">
+    {{-- <div class="banner-section spad">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4">
@@ -77,7 +77,7 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
     <!--banner section end-->
     <!--jewelry banner section begin-->
     <section class="women-banner spad">

@@ -33,11 +33,11 @@
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">ID</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Mã đơn hàng</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Mã sản phẩm</th>
+                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Mã người dùng</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Tên sản phẩm</th>
-                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Tên khách hàng</th>
-                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Ngày đặt hàng</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái đơn hàng</th>
-                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Số lượng</th>
+                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Ngày tạo đơn</th>
+                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Trạng thái đơn hàng</th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Số lượng</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Giá sản phẩm</th>
                                 <th class="text-secondary opacity-7"></th>
                             </tr>
@@ -60,14 +60,16 @@
                                         <b>{{$orderdetail->product_id}}</b>
                                     </div>
                                 </td>
+                                <td>
+                                    <div class=" text-center">
+                                        <b>{{$orderdetail->order->user_id}}</b>
+                                    </div>
+                                </td>
                                 <td class="text-center">
                                     <b class="text-xs text-secondary mb-0">{{$orderdetail->product->name_product}}</b>
                                 </td>
                                 <td class="text-center">
-                                    <b class="text-xs text-secondary mb-0">{{$orderdetail->order->user->name}}</b>
-                                </td>
-                                <td class="text-center">
-                                    <b class="text-xs text-secondary mb-0">{{$orderdetail->order->date_order}}</b>
+                                    <b class="text-xs text-secondary mb-0">{{$orderdetail->created_at}}</b>
                                 </td>
                                 <td class="text-center">
                                     <b class="text-xs text-secondary mb-0">{{$orderdetail->order->order_status}}</b>
@@ -76,7 +78,7 @@
                                     <b class="text-xs text-secondary mb-0">{{$orderdetail->qty}}</b>
                                 </td>
                                 <td class="text-center">
-                                    <b class="text-xs text-secondary mb-0">{{$orderdetail->order_price}}</b>
+                                    <b class="text-xs text-secondary mb-0">{{$orderdetail->order_price}}VNĐ</b>
                                 </td>
                                 <td class="align-middle">
                                     <form action="{{route('orderdetails.destroy',[$orderdetail->id])}}" method="POST">

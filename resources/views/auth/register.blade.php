@@ -22,6 +22,7 @@
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
+
                                     </div>
                                     <div class="group-input">
                                         <label for="email">Email</label>
@@ -52,16 +53,6 @@
                                             class="form-control @error('phone') is-invalid @enderror" name="phone"
                                             value="{{ old('phone') }}" required autocomplete="phone">
                                         @error('phone')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="group-input">
-                                        <label for="image">Hình ảnh</label>
-                                        <input name="image" id="image" type="file" class="form-control"
-                                            id="formGroupExampleInput">
-                                        @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
