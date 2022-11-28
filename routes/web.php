@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\client\CheckoutController;
 use App\Http\Controllers\Api\client\ProductController;
 use App\Http\Controllers\Api\client\ProductDetailController;
 use App\Http\Controllers\Api\client\SearchController;
+use App\Http\Controllers\Api\client\VnPayCheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -83,6 +84,7 @@ Route::prefix('/admin')->group(function (){
 
     Route::prefix('/orderdetails')->group(function () {
         // Start route orderdetails
+        Route::get('/{id}', [App\Http\Controllers\Api\v1\OrderController::class, 'showDetail'])->name('showOrderDetail');
         Route::get('/index', [App\Http\Controllers\Api\v1\OrderDetailController::class, 'index'])->name('indexOrderDetail');
         Route::get('/index5', [App\Http\Controllers\Api\v1\OrderDetailController::class, 'search5'])->name('search5');
         // End route orderdetails
@@ -142,8 +144,8 @@ Route::prefix('/cart')->group(function () {
     Route::get('/delete-cart/{rowId}', [CartController::class, 'destroy'])->name('deleteCart');
 });
 Route::post('/cart/order', [CheckoutController::class, 'store'])->name('Checkout');
-// Route::post('/cart/order', [CheckoutController::class, 'store1'])->name('Checkout1');
 });
+Route::post('/vnpay_payment/', [CheckoutController::class, 'vnpay_payment'])->name('payment.online');
 
 // Start resource
 Route::prefix('v1')->group(function () {

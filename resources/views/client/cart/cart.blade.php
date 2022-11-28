@@ -43,7 +43,7 @@
                                     <td class="total-price first-row">
                                         <?php
                                         $subtotal = $cart->price*$cart->qty;
-                                        echo $subtotal;
+                                        echo number_format($subtotal).' '.'vnđ';
                                         ?>
                                     </td>
                                     <input type="hidden" name="product_id" value="{{ $cart->id }}">
@@ -69,12 +69,16 @@
                             <div class="col-lg-4 offset-lg-4">
                                 <div class="proceed-checkout">
                                     <ul>
-                                        <li name="total" class="cart-total">Tổng giá<span>{{Cart::subtotal().' '.'VNĐ' }}</span></li>
+                                        <li name="total" class="cart-total">Tổng giá<span>{{Cart::total().' '.'vnđ'}}</span></li>
                                     </ul>
                                     <button class="proceed-btn">Thanh Toán</button>
                                 </div>
                             </div>
                         </div>
+                    </form>
+                    <form action="{{url('/vnpay_payment/')}}" method="POST">
+                        @csrf
+                        <button type="submit" name="redirect">Thanh toan bang VNPAY</button>
                     </form>
                 </div>
 

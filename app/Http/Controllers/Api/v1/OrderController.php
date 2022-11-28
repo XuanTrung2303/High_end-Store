@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\User;
 class OrderController extends Controller
@@ -27,10 +29,10 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $orderdetails = OrderDetail::all();
         $users = User::all();
         $orders = Order::all();
-        return view('admin.orders.index')->with(compact('users','orders'));
+        return view('admin.orders.index')->with(compact('users','orders','orderdetails'));
     }
 
     /**
@@ -53,10 +55,17 @@ class OrderController extends Controller
     public function show($id)
     {
         $orders = Order::find($id);
+        $orderdetails = OrderDetail::find($id);
         // điều hướng đến view edit category và truyền sang dữ liệu về category muốn sửa đổi
-        return view('admin.orders.show')->with(compact('orders'));
+        return view('admin.orders.show')->with(compact('orders','orderdetails'));
     }
-
+    public function showDetail($id)
+    {    $products = Product::all();
+        $orders = Order::find($id);
+        $orderdetail = OrderDetail::find($id);
+        // điều hướng đến view edit category và truyền sang dữ liệu về category muốn sửa đổi
+        return view('admin.orderdetails.index')->with(compact('orders','products','orderdetail'));
+    }
     /**
      * Update the specified resource in storage.
      *

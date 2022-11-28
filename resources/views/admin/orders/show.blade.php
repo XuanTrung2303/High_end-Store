@@ -19,7 +19,12 @@
                     <div class="table-responsive p-0">
                         <div class="mb-3">
                             <label for="formGroupExampleInput" class="form-label">Trạng thái đơn hàng</label>
-                            <input name="order_status" value="{{$orders->order_status}}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập trạng thái đơn hàng...">
+                            <select name="order_status" id="" class="form-control input-inline" style="width: 200px">
+                                <option value="Chưa giao">Chưa giao</option>
+                                <option value="Đang giao">Đang giao</option>
+                                <option value="Đã giao">Đã giao</option>
+                            </select>
+                            {{-- <input  value="{{$orders->order_status}}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Nhập trạng thái đơn hàng..."> --}}
                         </div>
                     </div>
                     <div class="px-5">
