@@ -97,7 +97,6 @@
                                             </div>
                                             @if (Route::has('login'))
                                                 @auth
-
                                                     <button type="submit" class="primary-btn pd-cart">
                                                         <i class="fa fa-shopping-cart"></i>
                                                     </button>

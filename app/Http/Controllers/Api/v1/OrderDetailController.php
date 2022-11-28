@@ -32,10 +32,6 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $orders = Order::all();
-        $orderdetails = OrderDetail::all();
-        return view('admin.orderdetails.index')->with(compact('products','orders', 'orderdetails'));
     }
 
     /**
@@ -57,8 +53,12 @@ class OrderDetailController extends Controller
      */
     public function show($id)
     {
+        $products = Product::all();
+        $orders = Order::find($id);
+        $orderdetails = OrderDetail::find($id);
+        return view('admin.orderdetails.index')->with(compact('products','orders', 'orderdetails'));
     }
-
+    
     /**
      * Update the specified resource in storage.
      *

@@ -64,6 +64,7 @@
                                     <a href="{{route('showOrder', $order->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit order">
                                         <input type="submit" class="btn btn-success" value="Cập nhật">
                                     </a>
+                                    <a class="btn btn-info mb-2" class="text-white" href="{{route('showOrderDetail', $order->id)}}">Xem đơn hàng chi tiết</a>
                                     <form action="{{route('orders.destroy',[$order->id])}}" method="POST">
                                         @method('DELETE')
                                         @csrf
@@ -79,7 +80,6 @@
                 </div>
             </div>
         </div>
-        <a class="btn btn-info mb-2" class="text-white" href="{{url('admin/orderdetails/index')}}">Xem đơn hàng chi tiết</a>
     </div>
 </div>
 @endsection

@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\BlogComment;
 use App\Models\CommentProduct;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,14 +20,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $countall_price = OrderDetail::all()->where('order_price')->count();
         $product_count = Product::count();
         $order_count = Order::count();
         $user_count = User::count();
         $product_comment_count = CommentProduct::count();
         $blog_count = Blog::count();
         $blog_comment_count = BlogComment::count();
-        return view('admin.thongke')->with(compact('product_count', 'order_count', 'user_count', 'product_comment_count','blog_count','blog_comment_count'));
+        return view('admin.thongke')->with(compact('product_count', 'order_count', 'user_count', 'product_comment_count','blog_count','blog_comment_count','countall_price'));
     }
 
     /**
