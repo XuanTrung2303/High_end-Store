@@ -53,15 +53,14 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-5">
-                    <div class="advanced-search">
+                <div class="col-md-5">
+                    <div class="advanced-search ">
                         <div class="input-group">
                             <form action="{{url('tim-kiem')}}" method="GET">
                             @csrf
-                            <input type="text"  name="key_pro_name" placeholder="Tìm kiếm...">
-                            <button type="submit" name="timkiem"><i class="ti-search"></i></button>
+                            <input type="text"  name="key_pro_name" placeholder="Tìm kiếm sản phẩm...">
+                            <button style="margin-right:-120px" type="submit" name="timkiem"><i class="ti-search"></i></button>
                             </form>
-                            {{-- <input type="submit" value="tìm kiếm" name=""> --}}
                         </div>
                     </div>
                 </div>
@@ -133,12 +132,8 @@
                     <li><a href="{{ url('/') }}">Trang Chủ</a></li>
                     <li><a href="{{ url('/product') }}">Sản Phẩm</a></li>
                     <li><a href="{{ url('/blog') }}">Blog</a></li>
-                    <li><a href="/contact.html">Liên Hệ</a></li>
-                    <li><a href="">Pages</a>
-                        <ul class="dropdown">
-                            <li><a href="{{ url('/cart/show_cart/') }}">Giỏ Hàng</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{ url('/contact/index') }}">Liên Hệ</a></li>
+                    <li><a href="{{ url('/cart/show_cart/') }}">Giỏ Hàng</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu-wrap"></div>

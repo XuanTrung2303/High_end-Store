@@ -16,7 +16,6 @@
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">ID</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Tên đăng nhập</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Email</th>
-                                <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Hình ảnh</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Số điện thoại</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Địa chỉ</th>
                                 <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ">Role</th>

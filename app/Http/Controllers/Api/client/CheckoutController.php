@@ -109,11 +109,9 @@ $returnData = array('code' => '00'
         $request->session()->forget('cart');
         $orderDetail = new OrderDetail();
         $orderDetail->order_id = $order->id;
-        // $orderDetail->order_price = $order->o;
         $orderDetail['order_price'] = Cart::total();
         $orderDetail->product_id = $request->product_id;
         $orderDetail->qty = $request->qty;
-
         // dd($orderDetail);
         $orderDetail->save();
         $request->session()->forget('cart');

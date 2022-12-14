@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="blog-details-inner">
-                        @foreach ($blogs as $blog)
+
                             <div class="blog-detail-title">
                                 <h2>{{ $blog->title }}</h2>
                                 <p><span>-{{ $blog->created_at }}</span></p>
@@ -19,7 +19,7 @@
                             <div class="blog-quote">
                                 <p>"{{ $blog->content }}"</p>
                             </div>
-                        @endforeach
+
                         <div class="tag-share">
                             <div class="blog-share">
                                 <span>Share:</span>

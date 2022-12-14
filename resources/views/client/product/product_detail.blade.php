@@ -192,10 +192,6 @@
                                             <div class="comment-option">
                                                 @foreach ($comm as $com)
                                                     <div class="co-item">
-                                                        <div class="avatar-pic">
-                                                            <img src="{{ asset('/storage/' . $com->user->image) }}"
-                                                                alt="">
-                                                        </div>
                                                         <div class="avatar-text">
                                                             <div class="at-rating">
                                                                 @for ($i = 0; $i < $com->rating; $i++)

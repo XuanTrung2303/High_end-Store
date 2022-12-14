@@ -58,13 +58,6 @@
                                 <div class="cart-buttons">
                                     <a href="{{ url('/product') }}" class="primary-btn up-cart">Tiếp tục mua hàng</a>
                                 </div>
-                                <div class="discount-coupon">
-                                    {{-- <h6>Mã giảm giá</h6>
-                                    <form action="#" class="coupon-form">
-                                        <input type="text" placeholder="Enter your codes">
-                                        <button type="submit" class="site-btn coupon-btn">Áp dụng</button>
-                                    </form> --}}
-                                </div>
                             </div>
                             <div class="col-lg-4 offset-lg-4">
                                 <div class="proceed-checkout">
@@ -78,7 +71,7 @@
                     </form>
                     <form action="{{url('/vnpay_payment/')}}" method="POST">
                         @csrf
-                        <button type="submit" name="redirect">Thanh toan bang VNPAY</button>
+                        <button class="primary-btn up-cart" type="submit" name="redirect"> Thanh toán bằng VNPAY</button>
                     </form>
                 </div>
 

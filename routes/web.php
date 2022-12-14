@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\client\BlogController;
 use App\Http\Controllers\Api\client\BlogDetailController;
 use App\Http\Controllers\Api\client\CartController;
 use App\Http\Controllers\Api\client\CheckoutController;
+use App\Http\Controllers\Api\client\ContactController;
 use App\Http\Controllers\Api\client\ProductController;
 use App\Http\Controllers\Api\client\ProductDetailController;
 use App\Http\Controllers\Api\client\SearchController;
@@ -146,7 +147,7 @@ Route::prefix('/cart')->group(function () {
 Route::post('/cart/order', [CheckoutController::class, 'store'])->name('Checkout');
 });
 Route::post('/vnpay_payment/', [CheckoutController::class, 'vnpay_payment'])->name('payment.online');
-
+Route::get('/contact/index', [ContactController::class, 'index']);
 // Start resource
 Route::prefix('v1')->group(function () {
     Route::resource('users', 'App\Http\Controllers\Api\v1\UserController');

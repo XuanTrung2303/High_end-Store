@@ -40,45 +40,8 @@
                 </div>
 
             </div>
-
         </section>
         <!--hero section end-->
-    <!--banner section begin-->
-    {{-- <div class="banner-section spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="single-banner">
-                        <img src="/user/img/bannerr-6.jpg" alt="">
-                        <div class="inner-text">
-                            <h4>Trang Sức Kim Cương</h4>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-banner">
-                        <img src="/user/img/bannnerr-6.jpg" alt="">
-                        <div class="inner-text">
-                            <h4>Trang Sức Ngọc Trai</h4>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-4">
-                    <div class="single-banner">
-                        <img src="/user/img/bannerr-4.jpg" alt="">
-                        <div class="inner-text">
-                            <h4>Trang Sức Vàng 24k</h4>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div> --}}
-    <!--banner section end-->
     <!--jewelry banner section begin-->
     <section class="women-banner spad">
         <div class="container-fluid">
@@ -86,17 +49,10 @@
                 <div class="col-lg-3">
                     <div class="product-large set-bg" data-setbg="/user/img/products/diamon-2.jpg">
                         <h2> TRANG SỨC</h2>
-                        <a href="#">Xem Thêm</a>
                     </div>
                 </div>
                 <div class="col-lg-8 offset-lg-1">
                     <div class="filter-control">
-                        <ul>
-                            <li class="active">NHẪN</li>
-                            <li>DÂY CHUYỀN</li>
-                            <li>LẮC VÀNG</li>
-                            <li>HOA TAI</li>
-                        </ul>
                     </div>
                     <div class="product-slider owl-carousel">
                         <div class="product-item">
