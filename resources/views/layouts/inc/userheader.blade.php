@@ -16,31 +16,37 @@
                 </div>
             </div>
 
-        <div class="ht-right">
-            @if (Route::has('login'))
-            @auth
-                <div class="user-nav d-sm-flex d-none text-bg-danger"><span class=" font-weight-bold login-panel">{{ Auth::user()->name }}</span>
+            <div class="ht-right">
+                @if (Route::has('login'))
+                    @auth
+                        <i class="fa fa-user me-sm-1"></i>
+                        <span style="color: green; text-align:center">Xin chào {{ Auth::user()->name }}</span>
+                        <div style="color: black; font-weight:bold;">
+                            <a style="color: black; font-weight:bold;" href="{{ asset('/userorder/index/') }}">Xem đơn hàng</a> |
+                            @if (Auth::user()->role_as == '1')
+                                <a style="color: black; font-weight:bold;" target="page" href="{{ asset('/dashboard') }}">
+                                    <span>Trang quản trị</span> </a> |
+                            @elseif (Auth::user()->role_as == '0')
+                            @endif
+                            <a style="color: black; font-weight:bold;" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                            </a>
+                        </div>
                 </div>
-                <a>
-                    <form method="POST" action="{{ route('logout') }}" class="dropdown-item">
-                        @csrf
-                        <a style="color: red;font-weight: bold;" href="route('logout')" onclick="event.preventDefault();
-                            this.closest('form').submit();">
-                            <i class="me-10" data-feather="power"></i>
-                            {{ __('Đăng xuất') }}
-                        </a>
-                    </form>
-                </a>
-        </div>
-    @else
-        <a href="{{ route('login') }}" class="login-panel"><i class="fa fa-user"></i>Đăng nhập</a>
-        @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="login-panel mr-3"><i class="fa fa-user"></i>Đăng ký</a>
+
+            </div>
+        @else
+            <a href="{{ route('login') }}" class="login-panel"><i class="fa fa-user"></i>Đăng nhập</a>
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="login-panel mr-3"><i class="fa fa-user"></i>Đăng ký</a>
+            @endif
+            <!-- </a> -->
+        @endauth
         @endif
-        <!-- </a> -->
-    @endauth
-    @endif
-        </div>
+    </div>
     </div>
     </div>
     <div class="container">
@@ -56,10 +62,11 @@
                 <div class="col-md-5">
                     <div class="advanced-search ">
                         <div class="input-group">
-                            <form action="{{url('tim-kiem')}}" method="GET">
-                            @csrf
-                            <input type="text"  name="key_pro_name" placeholder="Tìm kiếm sản phẩm...">
-                            <button style="margin-right:-120px" type="submit" name="timkiem"><i class="ti-search"></i></button>
+                            <form action="{{ url('tim-kiem') }}" method="GET">
+                                @csrf
+                                <input type="text" name="key_pro_name" placeholder="Tìm kiếm sản phẩm...">
+                                <button style="margin-right:-120px" type="submit" name="timkiem"><i
+                                        class="ti-search"></i></button>
                             </form>
                         </div>
                     </div>
@@ -72,54 +79,6 @@
                                 <span>1</span>
                             </a>
                         </li>
-                        {{-- <li class="cart-icon">
-                            <a href="#">
-                                <i class="icon_bag_alt"></i>
-                                <span>3</span>
-                            </a>
-                            <div class="cart-hover">
-                                <div class="select-items">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td class="si-pic"><img src="/user/img/instag-1.jpg"></td>
-                                                <td class="si-text">
-                                                    <div class="product-selected">
-                                                        <p>$60.000.000 x 1</p>
-                                                        <h6>Kabing Beside Table</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    <i class="ti-close"></i>
-
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="si-pic"><img src="/user/img/instag-2.jpg"></td>
-                                                <td class="si-text">
-                                                    <div class="product-selected">
-                                                        <p>60.000.000 x 1</p>
-                                                        <h6>Kabing Beside Table</h6>
-                                                    </div>
-                                                </td>
-                                                <td class="si-close">
-                                                    <i class="ti-close"></i>
-
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="select-total">
-                                    <span>Tổng tiền:</span>
-                                    <h5>$120.00</h5>
-                                </div>
-                                <div class="select-button">
-                                    <a href="{{ url('/cart/show_cart/') }} }}" class="primary-btn view-card">Giỏ hàng</a>
-                                    <a href="/check-out.html" class="primary-btn checkout-btn">Thanh toán</a>
-                                </div>
-                            </div>
-                        </li> --}}
                     </ul>
                 </div>
             </div>

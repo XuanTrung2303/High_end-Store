@@ -39,7 +39,7 @@
                                     <b class="text-xs">{{$blog->title}}</b>
                                 </td>
                                 <td class="text-center">
-                                    <b class="text-xs">{{$blog->content}}</b>
+                                    <b class="text-xs">{!!substr($blog->content,0,50)!!}</b>
                                 </td>
                                 <td class="text-center">
                                     <img width="200px" src="{{asset('/storage/'.$blog->image)}}">
@@ -65,6 +65,7 @@
                                 </td>
                             </tr>
                             @endforeach
+                            {{ $blogs->links('pagination::bootstrap-4') }}
                         </tbody>
                     </table>
 

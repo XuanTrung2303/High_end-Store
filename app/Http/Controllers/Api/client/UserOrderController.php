@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Api\client;
 
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
-use App\Models\CategoryProduct;
-use App\Models\Product;
-use App\Models\User;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class CartController extends Controller
+class UserOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +17,11 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('client.cart.cart');
+        $id = Auth::user()->id;
+        $userorders = OrderDetail::join('products', 'order_detail.product_id', '=', 'products.id')->join('orders', 'order_detail.order_id', '=', 'orders.id')->where('user_id', $id)->get();
+        // $userorders = Order::where('user_id', $id)->get();
+        // // điều hướng đến view edit category và truyền sang dữ liệu về category muốn sửa đổi
+        return view('client.userorder.index')->with(compact('userorders'));
     }
 
     /**
@@ -29,20 +30,9 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( Request $request)
+    public function store(Request $request)
     {
-        // dd(Cart::content());
-        $productId = $request->productId_hidden;
-        $quantity = $request->qty;
-        $product_info = DB::table('products')->where('id' ,'=' ,$productId)->first();
-        $data['id'] = $product_info->id;
-        $data['qty'] = $quantity;
-        $data['name'] = $product_info->name_product;
-        $data['price'] = $product_info->price;
-        $data['weight'] = $product_info->weight;
-        $data['options']['image_product']  = $product_info->image_product;
-        Cart::add([$data]);
-        return redirect()->back();
+        //
     }
 
     /**
@@ -53,7 +43,7 @@ class CartController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -74,9 +64,8 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($rowId)
+    public function destroy($id)
     {
-        Cart::update($rowId,0);
-        return redirect()->back();
+        //
     }
 }

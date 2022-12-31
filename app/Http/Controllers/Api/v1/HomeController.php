@@ -23,11 +23,7 @@ class HomeController extends Controller
     {   $countall_price = OrderDetail::all()->where('order_price')->count();
         $product_count = Product::count();
         $order_count = Order::count();
-        $user_count = User::count();
-        $product_comment_count = CommentProduct::count();
-        $blog_count = Blog::count();
-        $blog_comment_count = BlogComment::count();
-        return view('admin.thongke')->with(compact('product_count', 'order_count', 'user_count', 'product_comment_count','blog_count','blog_comment_count','countall_price'));
+        return view('admin.thongke')->with(compact('product_count', 'order_count','countall_price'));
     }
 
     /**

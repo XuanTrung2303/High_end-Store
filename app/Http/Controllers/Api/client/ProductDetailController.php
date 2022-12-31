@@ -67,9 +67,6 @@ class ProductDetailController extends Controller
         $product = Product::all();
         $products = Product::find($id); //view sp
         $comm = CommentProduct::where('product_id','=', $products->id)->get();
-        foreach($products as $key =>$product){
-            $category_id = $products->product_category_id;
-        }
         $brands = Brand::all();
         $categories = CategoryProduct::all();
         $countcomment = CommentProduct::all()->where('product_id','=', $products->id)->count();
@@ -79,7 +76,9 @@ class ProductDetailController extends Controller
         $count3 = CommentProduct::all()->where('product_id','=', $products->id)->where('rating', '=', 3)->count();
         $count2 = CommentProduct::all()->where('product_id','=', $products->id)->where('rating', '=', 2)->count();
         $count1 = CommentProduct::all()->where('product_id','=', $products->id)->where('rating', '=', 1)->count();
-
+        foreach($products as $key =>$product){
+            $category_id = $products->product_category_id;
+        }
         $product_related = Product::with('category_product')->where('product_category_id',  $category_id)->whereNotIn('id',[$id])->orderBy(DB::raw('RAND()'))->limit(5)->get();
 
         if ($countall) {

@@ -27,13 +27,9 @@
                             </div>
                         </a>
                     </li>
-            </div>
-            </a>
-            </li>
-            </ul>
-            </li>
-            </ul>
+                </ul>
+                </div>
         </div>
-        </div>
+
     </nav>
     <!-- End Navbar -->

@@ -33,9 +33,9 @@
                         <h4 class="fw-title">Thương Hiệu</h4>
                         @foreach ($brands as $brand)
                             <div class="fw-brand-check">
-                                <div class="bc-item"><label for="bc-calvin">
-                                    {{ $brand->name_brands }}
-                                </label></div>
+                                <ul class="filter-catagories">
+                                    <li><a href="#">{{ $brand->name_brands }}</a></li>
+                                </ul>
                             </div>
                         @endforeach
                     </div>
@@ -85,7 +85,9 @@
                                             <ul>
                                                 <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a>
                                                 </li>
-                                                <li class="quick-view"><a href="{{route('showProductClient', $product->id)}}"> + Chi tiết</a></li>
+                                                <li class="quick-view"><a
+                                                        href="{{ route('showProductClient', $product->id) }}"> + Chi
+                                                        tiết</a></li>
                                                 <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
                                             </ul>
                                         </div>
@@ -95,7 +97,9 @@
                                                 <h5>{{ $product->name_product }}</h5>
                                             </a>
                                             <div class="product-price">
-                                                {{ $product->price }}.000.000 VNĐ
+                                                <?php
+                                                echo number_format($product->price) . ' ' . 'vnđ';
+                                                ?>
                                             </div>
                                             <div class="catagory-name">
                                                 Chất liệu: {{ $product->cate }}

@@ -6,30 +6,7 @@
         <input class="btn btn-info w-30" value="{{Session::get('success')}}">
     </div>
     @endif
-    <div style="margin-left: 600px ">
-        <form style="float: left;" class="form-inline" action="{{route('search1')}}" method="GET">
-            @csrf
-            <select name="key_cate_id" class="custom-select my-1 mr-sm-2" id="cate" onchange="this.form.submit()">
-                <option selected>Lọc theo danh mục</option>
-                <option value="">Tất cả sản phẩm</option>
-                @foreach($category as $key => $cate)
-                <option data-id="{{$cate->id}}" value="{{$cate->id}}">{{$cate->name_category}}</option>
-                @endforeach
-            </select>
-        </form>
-        <div class="col-md-3" style="float: left; padding-left: 10px; margin-bottom:50px; ">
-            <form class="form-inline" action="{{route('search2')}}" method="GET">
-                @csrf
-                <select name="key_brand_id" class="custom-select my-1 mr-sm-2" id="cate" onchange="this.form.submit()">
-                    <option selected>Lọc theo thương hiệu</option>
-                    <option value="">Tất cả sản phẩm</option>
-                    @foreach($brands as $key => $brand)
-                    <option data-id="{{$brand->id}}" value="{{$brand->id}}">{{$brand->name_brands}}</option>
-                    @endforeach
-                </select>
-            </form>
-        </div>
-    </div>
+
     <div class="col-12">
         <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -53,8 +30,6 @@
                                 <th class="text-uppercase text-center text-xxs font-weight-bolder opacity-7 ps-2">Trọng lượng</th>
                                 <th class="text-uppercase text-center text-xxs font-weight-bolder opacity-7 ps-2">Mã giảm giá</th>
                                 <th class="text-uppercase text-center text-xxs font-weight-bolder opacity-7 ps-2">Phân loại sản phẩm</th>
-                                <th class="text-center text-uppercase text-center text-xxs font-weight-bolder opacity-7">Ngày tạo</th>
-                                <th class="text-center text-uppercase text-center text-xxs font-weight-bolder opacity-7">Ngày cập nhật</th>
                                 <th class="text-center opacity-7"></th>
                             </tr>
                         </thead>
@@ -81,14 +56,16 @@
                                     <b class="text-xs">{{$product->name_product}}</b>
                                 </td>
                                 <td class="text-center">
-                                    <b class="text-xs">{{$product->description}}</b>
+                                    <b class="text-xs">{!!substr($product->description,0,50)!!}</b>
                                 </td>
                                 <td class="text-center">
                                     <img width="200px" src="{{asset('/storage/'.$product->image_product)}}">
                                     <b class="text-xs"></b>
                                 </td>
                                 <td class="text-center">
-                                    <b class="text-xs">{{$product->price}}</b>
+                                    <b class="text-xs">  <?php
+                                        echo number_format($product->price) . ' ' . 'vnđ';
+                                        ?></b>
                                 </td>
                                 <td class="text-center">
                                     <b class="text-xs">{{$product->amount}}</b>
@@ -101,12 +78,6 @@
                                 </td>
                                 <td class="text-center">
                                     <b class="text-xs">{{$product->cate}}</b>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-secondary text-xs font-weight-bold">{{$product->created_at}}</span>
-                                </td>
-                                <td class="align-middle text-center">
-                                    <span class="text-secondary text-xs font-weight-bold">{{$product->updated_at}}</span>
                                 </td>
                                 <td class="align-middle">
                                     <a href="{{route('showProduct', $product->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit product">
@@ -122,9 +93,9 @@
                                 </td>
                             </tr>
                             @endforeach
+                            {{ $products->links('pagination::bootstrap-4') }}
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

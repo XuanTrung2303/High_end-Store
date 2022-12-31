@@ -12,19 +12,6 @@ use Illuminate\Http\Request;
 class OrderDetailController extends Controller
 {
 
-
-    public function search5(){
-        $keywords = $_GET['key_pro_id'];
-        $products = Product::all();
-        $orderdetails = OrderDetail::where('id','=',$keywords)->get();
-        if(count( $orderdetails)!=0){
-            return view('admin.orderdetails.index')->with(compact('products','orderdetails'));
-        }
-        else if (count( $orderdetails)==0){
-             $orderdetails = OrderDetail::all();
-            return view('admin.orderdetails.index')->with(compact('products','orderdetails'));
-        }
-    }
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +45,7 @@ class OrderDetailController extends Controller
         $orderdetails = OrderDetail::find($id);
         return view('admin.orderdetails.index')->with(compact('products','orders', 'orderdetails'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *

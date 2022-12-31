@@ -21,7 +21,7 @@ class CommentProductController extends Controller
             return view('admin.comment_product.index')->with(compact('users','comment_products','products'));
         }
         else if (count($comment_products)==0){
-            $comment_products = CommentProduct::all();
+            $comment_products = CommentProduct::orderby('id', 'DESC')->paginate(10);
             return view('admin.comment_product.index')->with(compact('users','comment_products','products'));
         }
     }
@@ -36,7 +36,7 @@ class CommentProductController extends Controller
             return view('admin.comment_product.index')->with(compact('products','comment_products','users'));
         }
         else if (count( $comment_products)==0){
-             $comment_products = CommentProduct::all();
+             $comment_products = CommentProduct::orderby('id', 'DESC')->paginate(10);
             return view('admin.comment_product.index')->with(compact('products','comment_products','users'));
         }
     }
@@ -47,7 +47,7 @@ class CommentProductController extends Controller
      */
     public function index()
     {
-        $comment_products = CommentProduct::all();
+        $comment_products = CommentProduct::join('products', 'comment_product.product_id', '=', 'products.id')->orderby('products.id', 'DESC')->paginate(10);
         $users = User::all();
         $products = Product::all();
         return view ('admin.comment_product.index')->with(compact('comment_products', 'users', 'products'));

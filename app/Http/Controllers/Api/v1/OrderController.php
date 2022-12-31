@@ -10,18 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 class OrderController extends Controller
 {
-    public function search4(){
-        $keywords = $_GET['key_user_id'];
-        $users = User::all();
-        $orders = Order::where('id','=',$keywords)->get();
-        if(count($orders)!=0){
-            return view('admin.orders.index')->with(compact('users','orders'));
-        }
-        else if (count($orders)==0){
-            $orders = Order::all();
-            return view('admin.orders.index')->with(compact('users','orders'));
-        }
-    }
+
 
     /**
      * Display a listing of the resource.
@@ -29,10 +18,10 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $orderdetails = OrderDetail::all();
+    {
         $users = User::all();
-        $orders = Order::all();
-        return view('admin.orders.index')->with(compact('users','orders','orderdetails'));
+        $orders = Order::orderby('id', 'DESC')->paginate(15);
+        return view('admin.orders.index')->with(compact('users','orders'));
     }
 
     /**
@@ -55,16 +44,15 @@ class OrderController extends Controller
     public function show($id)
     {
         $orders = Order::find($id);
-        $orderdetails = OrderDetail::find($id);
         // điều hướng đến view edit category và truyền sang dữ liệu về category muốn sửa đổi
-        return view('admin.orders.show')->with(compact('orders','orderdetails'));
+        return view('admin.orders.show')->with(compact('orders'));
     }
     public function showDetail($id)
-    {    $products = Product::all();
+    {
         $orders = Order::find($id);
-        $orderdetail = OrderDetail::find($id);
+        $orderdetails = OrderDetail::where('order_id', $id)->get();
         // điều hướng đến view edit category và truyền sang dữ liệu về category muốn sửa đổi
-        return view('admin.orderdetails.index')->with(compact('orders','products','orderdetail'));
+        return view('admin.orderdetails.index')->with(compact('orders','orderdetails'));
     }
     /**
      * Update the specified resource in storage.

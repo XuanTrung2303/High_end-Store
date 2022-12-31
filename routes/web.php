@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\client\BlogController;
 use App\Http\Controllers\Api\client\BlogDetailController;
 use App\Http\Controllers\Api\client\CartController;
+use App\Http\Controllers\Api\client\UserOrderController;
 use App\Http\Controllers\Api\client\CheckoutController;
 use App\Http\Controllers\Api\client\ContactController;
 use App\Http\Controllers\Api\client\ProductController;
@@ -120,6 +121,7 @@ Route::prefix('/admin')->group(function (){
 });
 
 Route::prefix('/')->group( function () {
+
     Route::get('', function () {
         return view('client.index');
     });
@@ -145,6 +147,7 @@ Route::prefix('/cart')->group(function () {
     Route::get('/delete-cart/{rowId}', [CartController::class, 'destroy'])->name('deleteCart');
 });
 Route::post('/cart/order', [CheckoutController::class, 'store'])->name('Checkout');
+Route::get('/userorder/index', [UserOrderController::class, 'index'])->name('OrderUser');
 });
 Route::post('/vnpay_payment/', [CheckoutController::class, 'vnpay_payment'])->name('payment.online');
 Route::get('/contact/index', [ContactController::class, 'index']);

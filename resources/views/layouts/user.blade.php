@@ -39,6 +39,7 @@
     <script src="{{ asset ('user/js/jquery.slicknav.js')}}"></script>
     <script src="{{ asset ('user/js/owl.carousel.min.js')}}"></script>
     <script src="{{ asset ('user/js/main.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </body>
 
 </html>

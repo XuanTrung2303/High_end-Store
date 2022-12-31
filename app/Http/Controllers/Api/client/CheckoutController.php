@@ -99,22 +99,23 @@ $returnData = array('code' => '00'
      */
     public function store(Request $request)
     {
-        $orderDetail = array();
-        $order = new Order();
-        $order->product_id = $request->product_id;
-        $order->user_id = Auth::user()->id;
-        $order->qty = $request->qty;
-        $order->order_status = "Chờ xác nhận";
-        $order->save();
-        $request->session()->forget('cart');
-        $orderDetail = new OrderDetail();
-        $orderDetail->order_id = $order->id;
-        $orderDetail['order_price'] = Cart::total();
-        $orderDetail->product_id = $request->product_id;
-        $orderDetail->qty = $request->qty;
-        // dd($orderDetail);
-        $orderDetail->save();
-        $request->session()->forget('cart');
+        //insert order
+        $order_data = array();
+        $order_data['product_id'] = $request->product_id;
+        $order_data['user_id'] = Auth::user()->id;
+        $order_data['qty'] = $request->qty;
+        $order_data['order_status'] = "Chờ xác nhận";
+        $order_id = DB::table('orders')->insertGetId($order_data);
+        //insert order_details
+        $carts = Cart::content();
+        foreach($carts as $cart){
+            $order_d_data['order_id'] = $order_id;
+            $order_d_data['product_id'] =$cart->id;
+            $order_d_data['order_price'] = $cart->price;
+            $order_d_data['qty'] =$cart->qty;
+            DB::table('order_detail')->insert($order_d_data);
+            $request->session()->forget('cart');
+        }
         return redirect()->back();
     }
     // public function store1(Request $request)

@@ -96,7 +96,9 @@
                                                 <h5>{{ $product->name_product }}</h5>
                                             </a>
                                             <div class="product-price">
-                                                {{ $product->price }}.000.000 VNĐ
+                                                <?php
+                                                echo number_format($product->price) . ' ' . 'vnđ';
+                                                ?>
                                             </div>
                                             <div class="catagory-name">
                                                 Chất liệu: {{ $product->cate }}

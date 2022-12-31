@@ -19,4 +19,7 @@ class Order extends Model
     public function user(){
         return $this->belongsTo('App\Models\User','user_id','id'); // Tạo function sau đó dùng belongsTo để liên kết khóa ngoại
     }
+    public function product(){
+        return $this->belongsTo('App\Models\Product','product_id','id'); // Tạo function sau đó dùng belongsTo để liên kết khóa ngoại
+    }
 }

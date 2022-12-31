@@ -84,7 +84,10 @@
                                 </div>
                                 <div class="pd-desc">
                                     <p>{{ $products->brand->name_brands }}</p>
-                                    <h4>{{ $products->price }}.000.000 VNĐ</h4>
+                                    <h4>
+                                        <?php
+                                        echo number_format($products->price) . ' ' . 'vnđ';
+                                        ?></h4>
                                 </div>
 
                                 <div class="quantity">
@@ -159,7 +162,9 @@
                                                     <td class="p-catagory">Giá</td>
                                                     <td>
                                                         <div class="p-price">
-                                                            {{ $products->price }}.000.000 VNĐ
+                                                            <?php
+                                                            echo number_format($products->price) . ' ' . 'vnđ';
+                                                            ?>
                                                         </div>
                                                     </td>
                                                 </tr>

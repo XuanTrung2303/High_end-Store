@@ -17,40 +17,12 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function search1(){
-        $keywords = $_GET['key_cate_id'];
-        $category = CategoryProduct::all();
-        $brands = Brand::all();
-        $products = Product::where('product_category_id','=',$keywords)->get();
-        if(count($products)!=0){
-            return view('admin.products.index')->with(compact('products','category','brands'));
-        }
-        else if (count($products)==0){
-            $products = Product::all();
-            return view('admin.products.index')->with(compact('products','category','brands'));
-        }
-    }
-
-    public function search2(){
-        $keywords = $_GET['key_brand_id'];
-        $category = CategoryProduct::all();
-        $brands = Brand::all();
-        $products = Product::where('brand_id','=',$keywords)->get();
-        if(count($products)!=0){
-
-            return view('admin.products.index')->with(compact('products','category','brands'));
-        }
-        else if (count($products)==0){
-            $products = Product::all();
-            return view('admin.products.index')->with(compact('products','category','brands'));
-        }
-    }
 
     public function index()
     {
         $category = CategoryProduct::all();
         $brands = Brand::all();
-        $products = Product::all();
+        $products = Product::orderby('id', 'DESC')->paginate(10);
         return view('admin.products.index')->with(compact('products','category','brands'));
     }
 
@@ -72,6 +44,7 @@ class ProductController extends Controller
         $products->product_category_id = $request->product_category_id;
         $products->name_product = $request->name_product;
         $products->description = $request->description;
+        $products->quantity = 1;
         if($request['image_product']){
             $image = $request['image_product'];
            // dd($ext);

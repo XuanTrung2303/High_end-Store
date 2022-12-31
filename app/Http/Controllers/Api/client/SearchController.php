@@ -18,7 +18,7 @@ class SearchController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function timkiem() {
-            $keywords =$_GET['key_pro_name'];
+            $keywords = $_GET['key_pro_name'];
             $category_product = Product::with('category_product')->where('name_product','LIKE','%'.$keywords.'%')->orWhere('cate','LIKE','%'.$keywords.'%')->get();
             $categories = CategoryProduct::all();
             $brands = Brand::all();

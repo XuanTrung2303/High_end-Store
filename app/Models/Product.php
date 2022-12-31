@@ -13,7 +13,7 @@ class Product extends Model
 
     public $timestaps = false;  // set time to false
     protected $fillable = [
-    'name_product', 'description', 'content', 'price', 'qty', 'discount', 'weight', 'sku', 'featured', 'tag','brand_id', 'product_category_id'
+    'name_product', 'content', 'price', 'qty', 'discount', 'weight', 'amount', 'featured', 'tag','brand_id', 'product_category_id'
     ];
 
     public function category_product(){

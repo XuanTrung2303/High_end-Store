@@ -6,17 +6,7 @@
         <input class="btn btn-info w-30" value="{{Session::get('success')}}">
     </div>
     @endif
-    <div style="margin-left: 700px ">
-        <form style="float: left;" class="form-inline" action="{{route('search8')}}" method="GET">
-            @csrf
-            <select name="key_user_id" class="custom-select my-1 mr-sm-2" id="cate" onchange="this.form.submit()">
-                <option selected>Lọc theo người dùng</option>
-                <option value="">Tất cả bình luận</option>
-                @foreach($users as $key => $user)
-                <option data-id="{{$user->id}}" value="{{$user->id}}">{{$user->name}}</option>
-                @endforeach
-            </select>
-        </form>
+    {{-- <div style="margin-left: 700px ">
         <form style="float: left;" class="form-inline" action="{{route('search9')}}" method="GET">
             @csrf
             <select name="key_blog_id" class="custom-select my-1 mr-sm-2" id="cate" onchange="this.form.submit()">
@@ -27,7 +17,7 @@
                 @endforeach
             </select>
         </form>
-    </div>
+    </div> --}}
     <div class="col-12">
         <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
